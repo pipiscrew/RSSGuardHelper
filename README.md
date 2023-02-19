@@ -13,8 +13,9 @@ This repo, created to help users, create parsers for pages not supporting RSS in
 
 
 Please see this quick tutorial : 
+<video src="https://user-images.githubusercontent.com/3852762/219969042-71a47a2e-6d6e-4d8c-b622-b8bc64ed6e74.mp4" controls="controls">
+</video>
 
-https://user-images.githubusercontent.com/3852762/219969042-71a47a2e-6d6e-4d8c-b622-b8bc64ed6e74.mp4
 ---  
 
 ## This project uses the following 3rd-party dependencies :  
