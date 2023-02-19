@@ -9,10 +9,12 @@ The mechanism of how to use **custom script**, described [here](https://github.c
 ---  
 
 This repo, created to help users, create parsers for pages not supporting RSS in a few clicks!! 
+* User to load a preset, can drag'n'drop the file to listbox
+
 
 Please see this quick tutorial : 
 
-[![IMAGE ALT TEXT](https://user-images.githubusercontent.com/3852762/219969270-4ee51b04-bea6-47c5-9a13-13af6c8b37ac.png)](https://user-images.githubusercontent.com/3852762/219969042-71a47a2e-6d6e-4d8c-b622-b8bc64ed6e74.mp4 "Presentation")
+https://user-images.githubusercontent.com/3852762/219969042-71a47a2e-6d6e-4d8c-b622-b8bc64ed6e74.mp4
 ---  
 
 ## This project uses the following 3rd-party dependencies :  
