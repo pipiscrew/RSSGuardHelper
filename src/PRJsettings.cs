@@ -5,6 +5,7 @@ namespace RSSGuardHelper
     {
         //general
         public string URL { get; set; }
+        public bool URLactive { get; set; }
         public string author { get; set; }
         public bool isMono { get; set; }
 

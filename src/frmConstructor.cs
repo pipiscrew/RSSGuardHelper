@@ -36,6 +36,7 @@ namespace RSSGuardHelper
             //https://stackoverflow.com/q/11485377
             //bool - Binding.FormattingEnabled Property - https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.binding.formattingenabled?view=windowsdesktop-7.0
             txtURL.DataBindings.Add(new Binding("Text", this.bindSource, "URL", false));
+            chkURLactive.DataBindings.Add(new Binding("Checked", this.bindSource, "URLactive", false));
             txtAuthor.DataBindings.Add(new Binding("Text", this.bindSource, "author", false));
             chkMono.DataBindings.Add(new Binding("Checked", this.bindSource, "isMono", false));
             txtParentElement.DataBindings.Add(new Binding("Text", this.bindSource, "parentElementSelector", false));
@@ -93,16 +94,16 @@ namespace RSSGuardHelper
 
 
         private void chkMono_CheckedChanged(object sender, EventArgs e)
-        {
+        {   //dont alter the /visible/ property of controls because breaks the binding. wtf!?
             if (chkMono.Checked)
             {
-                grpList.Visible = false;
-                grpSingle.Visible = true;
+                grpList.Size = new System.Drawing.Size(0, 0);
+                grpSingle.Size = new System.Drawing.Size(542, 109);
             }
             else
             {
-                grpList.Visible = true;
-                grpSingle.Visible = false;
+                grpList.Size = new System.Drawing.Size(542, 226);
+                grpSingle.Size = new System.Drawing.Size(0, 0);
             }
         }
 

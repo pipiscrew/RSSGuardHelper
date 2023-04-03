@@ -53,6 +53,7 @@
             this.toolStripAddItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.txtPreviewPageSource = new System.Windows.Forms.TextBox();
+            this.chkURLactive = new System.Windows.Forms.CheckBox();
             this.grpSingle.SuspendLayout();
             this.grpList.SuspendLayout();
             this.ctx.SuspendLayout();
@@ -284,11 +285,22 @@
             this.txtPreviewPageSource.Text = "Page(s) source";
             this.txtPreviewPageSource.MouseMove += new System.Windows.Forms.MouseEventHandler(this.txtPreview_MouseMove);
             // 
+            // chkURLactive
+            // 
+            this.chkURLactive.AutoSize = true;
+            this.chkURLactive.Location = new System.Drawing.Point(591, 98);
+            this.chkURLactive.Name = "chkURLactive";
+            this.chkURLactive.Size = new System.Drawing.Size(61, 21);
+            this.chkURLactive.TabIndex = 17;
+            this.chkURLactive.Text = "Active";
+            this.chkURLactive.UseVisualStyleBackColor = true;
+            // 
             // frmConstructor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(991, 570);
+            this.Controls.Add(this.chkURLactive);
             this.Controls.Add(this.txtPreviewPageSource);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnPreview);
@@ -344,6 +356,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripAddItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripDelete;
         private System.Windows.Forms.TextBox txtPreviewPageSource;
+        private System.Windows.Forms.CheckBox chkURLactive;
     }
 }
 

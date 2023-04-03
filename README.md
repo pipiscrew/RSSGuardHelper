@@ -18,6 +18,10 @@ Please see this quick tutorial :
 
 ---  
 
+* v1.0.1
+  * remove `visible` property as in some situation breaks the binding
+  * adding `URLActive` checkbox (this must be checked when asking for preview)  
+
 ## This project uses the following 3rd-party dependencies :  
 * [html-agility-pack](https://github.com/zzzprojects/html-agility-pack/) - v1.11.46
 * [HtmlAgilityPack.CssSelector](https://github.com/hcesar/HtmlAgilityPack.CssSelector) - v1.0.2 - without this library user has to write **XPath** selectors (example  ```//*[@id="bd"]/div[2]/div[1]/div/div[1]/div/h2/a```).

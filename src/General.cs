@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace RSSGuardHelper
@@ -45,7 +46,7 @@ namespace RSSGuardHelper
 
             x.items = new List<Item>();
 
-            foreach (PRJsettings item in General.db)
+            foreach (PRJsettings item in General.db.Where(q => q.URLactive))
             {
                 if (item.isMono)
                 {
