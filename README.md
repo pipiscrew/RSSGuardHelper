@@ -18,6 +18,9 @@ Please see this quick tutorial :
 
 ---  
 
+* v1.0.2
+  * force `UTF8` on download page
+
 * v1.0.1
   * remove `visible` property as in some situation breaks the binding
   * adding `URLActive` checkbox (this must be checked when asking for preview)  

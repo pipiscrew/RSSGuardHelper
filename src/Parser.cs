@@ -1,6 +1,7 @@
 ﻿using HtmlAgilityPackEx;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace RSSGuardHelper
 {
@@ -14,6 +15,7 @@ namespace RSSGuardHelper
             HtmlAgilityPackEx.HtmlDocument doc;
 
             web.UsingCache = false;
+            web.OverrideEncoding = Encoding.UTF8;
 
             doc = web.Load(record.URL);
 
@@ -52,6 +54,7 @@ namespace RSSGuardHelper
             HtmlAgilityPackEx.HtmlDocument doc;
 
             web.UsingCache = false;
+            web.OverrideEncoding = Encoding.UTF8;
 
             doc = web.Load(record.URL);
 
