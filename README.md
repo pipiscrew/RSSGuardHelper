@@ -18,6 +18,9 @@ Please see this quick tutorial :
 
 ---  
 
+* v1.0.3
+  * `hybrid` parse type added - this allows to 'select' titles on whole body
+
 * v1.0.2
   * force `UTF8` on download page
 

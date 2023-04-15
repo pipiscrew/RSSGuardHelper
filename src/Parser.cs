@@ -103,5 +103,55 @@ namespace RSSGuardHelper
 
             return x;
         }
+
+
+        internal static List<Item> RunHybridParser(PRJsettings record)
+        {
+            HtmlWeb web = new HtmlWeb();
+            HtmlAgilityPackEx.HtmlDocument doc;
+
+            web.UsingCache = false;
+            web.OverrideEncoding = Encoding.UTF8;
+
+            doc = web.Load(record.URL);
+
+            if (Parser.pageSourceAll != null) //catch only on form
+                Parser.pageSourceAll += string.Format("##{0}##\r\n{1}\r\n\r\n", record.URL, doc.Text);
+
+            List<Item> x = new List<Item>();
+            foreach (HtmlNode row in doc.DocumentNode.QuerySelectorAll(record.titleElementSelector))
+            {
+                string titleTXT = string.Empty; 
+                string itemLinkTXT = string.Empty;
+
+                if (string.IsNullOrEmpty(row.InnerText))
+                    titleTXT = "title not found";
+                else
+                    titleTXT = row.InnerText;
+
+                //link
+                HtmlNode itemLink = row.ParentNode.QuerySelector("a");
+
+                if (itemLink == null)
+                    itemLinkTXT = "link not found";
+                else
+                    itemLinkTXT = itemLink.Attributes["href"].Value;
+
+                string descrTXT = "";
+
+                x.Add(new Item()
+                {
+                    content_html = descrTXT,
+                    date_published = "",
+                    id = "",
+                    title = titleTXT,
+                    url = itemLinkTXT,
+                    author = new Author() { name = record.author }
+                });
+            }
+
+
+            return x;
+        }
     }
 }

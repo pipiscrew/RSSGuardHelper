@@ -33,7 +33,6 @@
             this.txtURL = new System.Windows.Forms.TextBox();
             this.txtAuthor = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.chkMono = new System.Windows.Forms.CheckBox();
             this.grpSingle = new System.Windows.Forms.GroupBox();
             this.txtMonoSelector = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -54,9 +53,16 @@
             this.toolStripDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.txtPreviewPageSource = new System.Windows.Forms.TextBox();
             this.chkURLactive = new System.Windows.Forms.CheckBox();
+            this.cmbElemType = new System.Windows.Forms.ComboBox();
+            this.grpHybrid = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtHybridTitleElemet = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.grpSingle.SuspendLayout();
             this.grpList.SuspendLayout();
             this.ctx.SuspendLayout();
+            this.grpHybrid.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -92,17 +98,6 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "author";
             // 
-            // chkMono
-            // 
-            this.chkMono.AutoSize = true;
-            this.chkMono.Location = new System.Drawing.Point(436, 98);
-            this.chkMono.Name = "chkMono";
-            this.chkMono.Size = new System.Drawing.Size(97, 21);
-            this.chkMono.TabIndex = 8;
-            this.chkMono.Text = "Single Value";
-            this.chkMono.UseVisualStyleBackColor = true;
-            this.chkMono.CheckedChanged += new System.EventHandler(this.chkMono_CheckedChanged);
-            // 
             // grpSingle
             // 
             this.grpSingle.Controls.Add(this.txtMonoSelector);
@@ -112,7 +107,6 @@
             this.grpSingle.Size = new System.Drawing.Size(542, 109);
             this.grpSingle.TabIndex = 9;
             this.grpSingle.TabStop = false;
-            this.grpSingle.Visible = false;
             // 
             // txtMonoSelector
             // 
@@ -295,11 +289,73 @@
             this.chkURLactive.Text = "Active";
             this.chkURLactive.UseVisualStyleBackColor = true;
             // 
+            // cmbElemType
+            // 
+            this.cmbElemType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbElemType.FormattingEnabled = true;
+            this.cmbElemType.Items.AddRange(new object[] {
+            "Single",
+            "List",
+            "Hybrid"});
+            this.cmbElemType.Location = new System.Drawing.Point(436, 98);
+            this.cmbElemType.Name = "cmbElemType";
+            this.cmbElemType.Size = new System.Drawing.Size(121, 25);
+            this.cmbElemType.TabIndex = 18;
+            this.cmbElemType.SelectedIndexChanged += new System.EventHandler(this.cmbElemType_SelectedIndexChanged);
+            // 
+            // grpHybrid
+            // 
+            this.grpHybrid.Controls.Add(this.textBox1);
+            this.grpHybrid.Controls.Add(this.label7);
+            this.grpHybrid.Controls.Add(this.txtHybridTitleElemet);
+            this.grpHybrid.Controls.Add(this.label8);
+            this.grpHybrid.Location = new System.Drawing.Point(437, 143);
+            this.grpHybrid.Name = "grpHybrid";
+            this.grpHybrid.Size = new System.Drawing.Size(542, 162);
+            this.grpHybrid.TabIndex = 19;
+            this.grpHybrid.TabStop = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(15, 107);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(508, 25);
+            this.textBox1.TabIndex = 13;
+            this.textBox1.Text = "will be the first [a] found in ParentNode";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 86);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(80, 17);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Link element";
+            // 
+            // txtHybridTitleElemet
+            // 
+            this.txtHybridTitleElemet.Location = new System.Drawing.Point(15, 42);
+            this.txtHybridTitleElemet.Name = "txtHybridTitleElemet";
+            this.txtHybridTitleElemet.Size = new System.Drawing.Size(508, 25);
+            this.txtHybridTitleElemet.TabIndex = 11;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(12, 21);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(176, 17);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Title element (found in body)";
+            // 
             // frmConstructor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(991, 570);
+            this.Controls.Add(this.grpHybrid);
+            this.Controls.Add(this.cmbElemType);
             this.Controls.Add(this.chkURLactive);
             this.Controls.Add(this.txtPreviewPageSource);
             this.Controls.Add(this.btnSave);
@@ -309,7 +365,6 @@
             this.Controls.Add(this.txtPreviewJSON);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.grpSingle);
-            this.Controls.Add(this.chkMono);
             this.Controls.Add(this.txtAuthor);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtURL);
@@ -325,6 +380,8 @@
             this.grpList.ResumeLayout(false);
             this.grpList.PerformLayout();
             this.ctx.ResumeLayout(false);
+            this.grpHybrid.ResumeLayout(false);
+            this.grpHybrid.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,7 +393,6 @@
         private System.Windows.Forms.TextBox txtURL;
         private System.Windows.Forms.TextBox txtAuthor;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox chkMono;
         private System.Windows.Forms.GroupBox grpSingle;
         private System.Windows.Forms.TextBox txtMonoSelector;
         private System.Windows.Forms.Label label3;
@@ -357,6 +413,12 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripDelete;
         private System.Windows.Forms.TextBox txtPreviewPageSource;
         private System.Windows.Forms.CheckBox chkURLactive;
+        private System.Windows.Forms.ComboBox cmbElemType;
+        private System.Windows.Forms.GroupBox grpHybrid;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtHybridTitleElemet;
+        private System.Windows.Forms.Label label8;
     }
 }
 

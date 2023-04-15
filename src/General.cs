@@ -48,13 +48,19 @@ namespace RSSGuardHelper
 
             foreach (PRJsettings item in General.db.Where(q => q.URLactive))
             {
-                if (item.isMono)
+                switch (item.elementType)
                 {
-                    x.items.Add(Parser.RunMonoParser(item));
-                }
-                else
-                {
-                    x.items.AddRange(Parser.RunListParser(item));
+                    case 0 :
+                        x.items.Add(Parser.RunMonoParser(item));
+                        break;
+                    case 1 :
+                        x.items.AddRange(Parser.RunListParser(item));
+                        break;
+                    case 2 :
+                        x.items.AddRange(Parser.RunHybridParser(item));
+                        break;
+                    default :
+                        break;
                 }
             }
 

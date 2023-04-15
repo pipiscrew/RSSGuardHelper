@@ -21,7 +21,8 @@ namespace RSSGuardHelper
 
             System.Net.ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
 
-            grpList.Top = grpSingle.Top;
+            grpHybrid.Top = grpList.Top = grpSingle.Top;
+            cmbElemType.SelectedIndex = 0;
 
             //listbox binding
             //General.db = new List<PRJsettings>();
@@ -38,11 +39,12 @@ namespace RSSGuardHelper
             txtURL.DataBindings.Add(new Binding("Text", this.bindSource, "URL", false));
             chkURLactive.DataBindings.Add(new Binding("Checked", this.bindSource, "URLactive", false));
             txtAuthor.DataBindings.Add(new Binding("Text", this.bindSource, "author", false));
-            chkMono.DataBindings.Add(new Binding("Checked", this.bindSource, "isMono", false));
+            cmbElemType.DataBindings.Add(new Binding("SelectedIndex", this.bindSource, "elementType", false));
             txtParentElement.DataBindings.Add(new Binding("Text", this.bindSource, "parentElementSelector", false));
             txtTitleElemet.DataBindings.Add(new Binding("Text", this.bindSource, "titleElementSelector", false));
             txtLinkElement.DataBindings.Add(new Binding("Text", this.bindSource, "linkElementSelector", false));
             txtMonoSelector.DataBindings.Add(new Binding("Text", this.bindSource, "monoElementSelector", false));
+            txtHybridTitleElemet.DataBindings.Add(new Binding("Text", this.bindSource, "titleElementSelector", false));
         }
 
         #region " LST EVENTS "
@@ -92,19 +94,29 @@ namespace RSSGuardHelper
             bindSource.ResetBindings(false);
         }
 
-
-        private void chkMono_CheckedChanged(object sender, EventArgs e)
+        private void cmbElemType_SelectedIndexChanged(object sender, EventArgs e)
         {   //dont alter the /visible/ property of controls because breaks the binding. wtf!?
-            if (chkMono.Checked)
+
+            switch (cmbElemType.SelectedIndex)
             {
-                grpList.Size = new System.Drawing.Size(0, 0);
-                grpSingle.Size = new System.Drawing.Size(542, 109);
+                case 0: //mono
+                    grpHybrid.Size = grpList.Size = new System.Drawing.Size(0, 0);
+                    grpSingle.Size = new System.Drawing.Size(542, 109);
+                    break;
+                case 1: //list
+                    grpList.Size = new System.Drawing.Size(542, 226);
+                    grpHybrid.Size = grpSingle.Size = new System.Drawing.Size(0, 0);
+                    break;
+                case 2: //hybrid
+                    grpHybrid.Size = new System.Drawing.Size(542, 162);
+                    grpSingle.Size = grpList.Size = new System.Drawing.Size(0, 0);
+                    break;
+                default:
+                    cmbElemType.SelectedIndex = 1;
+                    break;
+
             }
-            else
-            {
-                grpList.Size = new System.Drawing.Size(542, 226);
-                grpSingle.Size = new System.Drawing.Size(0, 0);
-            }
+
         }
 
         private void btnPreview_Click(object sender, EventArgs e)
@@ -183,6 +195,10 @@ namespace RSSGuardHelper
         {
             (sender as TextBox).SelectAll();
         }
+
+
+
+
 
 
 
